@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: redis-serviceentry
+spec:
+  hosts:
+  - redis.domain # not used
+  addresses:
+  - REDIS_ENDPOINT # VIPs
+  ports:
+  - number: 6379
+    name: tcp-redis
+    protocol: TCP
+  location: MESH_EXTERNAL
